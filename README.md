@@ -53,6 +53,14 @@ Download the source code and import it as a library project in Eclipse. The proj
 
 Visit the [releases](https://github.com/satyan/sugar/releases) page to download jars directly. You can drop them into your `libs` folder and configure the Java build path to include the library. See this [tutorial](http://www.vogella.com/tutorials/AndroidLibraryProjects/article.html) for an excellent guide on how to do this.
 
+Or create .jar file manually and copy to `libs` folder.
+You need to run these commands. (For building you must set default jdk version to 8)
+```
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
+
+gradle clean libraryJar
+```
+`libraryJar` task defined in `library/build.gradle`
 
 ### How to use master version
 First, download sugar repository
@@ -94,7 +102,7 @@ You should also comment this line just comment this line (library/build.gradle):
 ```
 ===================
 
-After installing, check out how to set up your first database and models [here](http://satyan.github.io/sugar/getting-started.html) **Outdated**. Check examples of 1.4 and master below: 
+After installing, check out how to set up your first database and models [here](http://satyan.github.io/sugar/getting-started.html) **Outdated**. Check examples of 1.4 and master below:
 
 ## Examples
 ### SugarRecord
@@ -131,7 +139,7 @@ book.save();
 
 or
 ```java
-SugarRecord.save(book); // if using the @Table annotation 
+SugarRecord.save(book); // if using the @Table annotation
 ```
 
 ### Load Entity
@@ -156,7 +164,7 @@ book.delete();
 
 or
 ```java
-SugarRecord.delete(book); // if using the @Table annotation 
+SugarRecord.delete(book); // if using the @Table annotation
 ```
 
 ### Update Entity based on Unique values
@@ -173,7 +181,7 @@ book.getId() == sameBook.getId(); // true
 
 or
 ```java
-SugarRecord.update(sameBook); // if using the @Table annotation 
+SugarRecord.update(sameBook); // if using the @Table annotation
 ```
 
 ### Bulk Insert
@@ -191,14 +199,14 @@ SugarRecord.saveInTx(books);
 -keep class com.yourpackage.yourapp.domainclasspackage.** { *; }
 ```
 
-### Known Issues. 
-#### 1. Instant Run. 
-Instant-Run seems to prevent Sugar ORM from finding the "table" classes, therefore it cannot create the DB tables if you run the app for the first time 
+### Known Issues.
+#### 1. Instant Run.
+Instant-Run seems to prevent Sugar ORM from finding the "table" classes, therefore it cannot create the DB tables if you run the app for the first time
 
 When running your app for the first time Turn off Instant run once to allow for the DB tables to be created
-You can enable it after the tables have been created. 
+You can enable it after the tables have been created.
 
-To disable Instant-Run in Android Studio: 
+To disable Instant-Run in Android Studio:
 
 ``(Preferences (Mac) or Settings (PC) -> Build, Execution, Deployment -> Instant Run -> Untick "Enable Instant Run..." )``
 
